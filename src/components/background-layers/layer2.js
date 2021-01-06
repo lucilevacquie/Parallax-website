@@ -10,12 +10,8 @@ const Image = styled.img`
     width: 299px;
 `;
 
-const Layer2 = () => {
-    return(
-        <div>
-            <Image src={Vector2}/>
-        </div>
-    )
+const Layer2 = ({myRef}) => {
+    return <Image ref={myRef} src={Vector2}/>
 }
 
 export default Layer2;

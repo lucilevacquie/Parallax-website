@@ -4,7 +4,8 @@ import Frame6 from "../../assets/Frame6.svg"
 
 const Image = styled.img`
     position: fixed;
-    width: 479px;
+    /* width: 479px; */
+    height:100vh;
 `;
 
 const Layer6 = () => {

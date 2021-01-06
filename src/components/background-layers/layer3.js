@@ -9,12 +9,8 @@ const Image = styled.img`
     width: 456px;
 `;
 
-const Layer3 = () => {
-    return(
-        <div>
-            <Image src={Vector3}/>
-        </div>
-    )
+const Layer3 = ({myRef}) => {
+    return <Image ref={myRef} src={Vector3}/>
 }
 
 export default Layer3;

@@ -7,15 +7,11 @@ const Image = styled.img`
     z-index:1;
     width: 106px;
     top: 2.5rem;
-    left: 2.5rem;
+    left: -6.5rem;
 `;
 
-const Layer5 = () => {
-    return(
-        <div>
-            <Image src={Vector5}/>
-        </div>
-    )
+const Layer5 = ({myRef}) => {
+    return <Image ref={myRef} src={Vector5}/>
 }
 
 export default Layer5;

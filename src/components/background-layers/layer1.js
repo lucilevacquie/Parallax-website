@@ -7,14 +7,15 @@ const Image = styled.img`
     bottom:0;
     z-index:5;
     width: 340px;
+    @media (min-width: 767px){
+        width: 547px;
+    }
 `;
 
-const Layer1 = () => {
-    return(
-        <div>
-            <Image src={Vector1}/>
-        </div>
-    )
+
+
+const Layer1 = ({ myRef }) => {
+    return <Image ref={myRef} src={Vector1}/>
 }
 
 export default Layer1;

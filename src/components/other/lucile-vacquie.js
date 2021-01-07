@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Arrow from "../../assets/arrow-down.svg"
+import LucileVacquie from "../../assets/lucile-vacquie.svg"
 
 const Container = styled.div`
     width: 100%;
@@ -8,20 +8,19 @@ const Container = styled.div`
     justify-content: center;
 `;
 
-const DownArrow = styled.img`
+const Title = styled.img`
     position: fixed;
-    width: 95px;
-    top: 40px;
     z-index: 2;
+    width: 300px;
+    top: -300px;
 `;
 
-const ScrollDown = ({myRef}) => {
+const MyName = ({myRef}) => {
     return(
         <Container>
-            <DownArrow ref={myRef} src={Arrow}/>
+            <Title ref={myRef} src={LucileVacquie}/>
         </Container>
-    
     )
 }
 
-export default ScrollDown;
+export default MyName;

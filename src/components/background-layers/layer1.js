@@ -5,11 +5,8 @@ import Vector1 from "../../assets/Vector1.svg";
 const Image = styled.img`
     position: fixed;
     bottom:0;
-    z-index:6;
+    z-index:7;
     width: 340px;
-    @media (min-width: 767px){
-        width: 547px;
-    }
 `;
 
 

@@ -1,13 +1,15 @@
 import React, {useEffect, useRef} from "react";
 import styled from "styled-components";
-import Layer1 from "./layer1";
-import Layer2 from "./layer2";
-import Layer3 from "./layer3";
-import Layer4 from "./layer4";
-import Layer5 from "./layer5";
-import Layer6 from "./layer6";
-import Layer7 from "./layer7";
-import LastLayer from "./last-layer";
+import Layer1 from "./background-layers/layer1";
+import Layer2 from "./background-layers/layer2";
+import Layer3 from "./background-layers/layer3";
+import Layer4 from "./background-layers/layer4";
+import Layer5 from "./background-layers/layer5";
+import Layer6 from "./background-layers/layer6";
+import Layer7 from "./background-layers/layer7";
+import LastLayer from "./background-layers/last-layer";
+import ScrollDown from "./other/scroll-down";
+import MyName from "./other/lucile-vacquie";
 
 const Container = styled.div`
     height: 5000px;
@@ -23,14 +25,18 @@ const multipliers = {
     },
     layer5: 0.03,
     layer6: -0.05,
-    layer7: -0.05
+    layer7: -0.05,
+    scrollDown: -0.12,
+    myName: 0.12,
+    // links: -0.05
 }
 
 const maxXLayer5 = 130;
 const maxYLayer6 = 160;
 const maxYLayer7 = 100;
+const maxYMyName = 420;
 
-const Background = () => {
+const Parallax = () => {
     
     const refLayer1 = useRef()
     const refLayer2 = useRef()
@@ -40,6 +46,9 @@ const Background = () => {
     const refLayer5 = useRef()
     const refLayer6 = useRef()
     const refLayer7 = useRef()
+    const refScrollDown = useRef()
+    const refMyName = useRef()
+    // const refLinks = useRef()
 
     const updateXPosition = (ref, multiplier, currentScrollPosition, maxX) => {
         let position = currentScrollPosition*multiplier
@@ -72,6 +81,9 @@ const Background = () => {
         updateXPosition(refLayer5.current, multipliers.layer5, pos, maxXLayer5)
         updateYPosition(refLayer6.current, multipliers.layer6, pos, maxYLayer6)
         updateYPosition(refLayer7.current, multipliers.layer7, pos, maxYLayer7)
+        updateYPosition(refScrollDown.current, multipliers.scrollDown, pos)
+        updateYPosition(refMyName.current, multipliers.myName, pos, maxYMyName)
+        // updateYPosition(refLinks.current, multipliers.links, pos)
     }
 
     useEffect(() => {
@@ -99,9 +111,11 @@ const Background = () => {
             <Layer5 myRef={refLayer5}/>
             <Layer6 myRef={refLayer6}/>
             <Layer7 myRef={refLayer7}/>
+            <ScrollDown myRef={refScrollDown}/>
+            <MyName myRef={refMyName}/>
             <LastLayer/>
         </Container>
     )
 }
 
-export default Background;
+export default Parallax;

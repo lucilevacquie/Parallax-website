@@ -1,13 +1,9 @@
 import React from "react"
 import './App.css';
-import Background from "./components/background-layers/background";
+import Background from "./components/background";
 
 const App = () => {
-  return (
-    <div>
-      <Background/>
-    </div>
-  )
+  return <Background/>
 }
 
 export default App;

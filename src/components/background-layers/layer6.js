@@ -12,7 +12,7 @@ const Image = styled.img`
     position: fixed;
     width: 250px;
     bottom: -100px;
-    z-index: 2;
+    z-index: 3;
 `;
 
 const Layer6 = ({myRef}) => {

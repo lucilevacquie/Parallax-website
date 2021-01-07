@@ -5,8 +5,8 @@ import Vector2 from "../../assets/Vector2.svg"
 const Image = styled.img`
     position: fixed;
     bottom:0;
-    right:0;
-    z-index:5;
+    left: 360px;
+    z-index:6;
     width: 299px;
 `;
 

@@ -5,7 +5,7 @@ import Vector4 from "../../assets/Vector4.svg"
 const Image = styled.img`
     position: fixed;
     bottom: 0;
-    z-index: 2;
+    z-index: 3;
     width: 479px;
 `;
 

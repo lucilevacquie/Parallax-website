@@ -6,6 +6,7 @@ import Layer3 from "./layer3";
 import Layer4 from "./layer4";
 import Layer5 from "./layer5";
 import Layer6 from "./layer6";
+import Layer7 from "./layer7";
 import LastLayer from "./last-layer";
 
 const Container = styled.div`
@@ -22,10 +23,12 @@ const multipliers = {
     },
     layer5: 0.03,
     layer6: -0.05,
+    layer7: -0.05
 }
 
 const maxXLayer5 = 130;
 const maxYLayer6 = 160;
+const maxYLayer7 = 100;
 
 const Background = () => {
     
@@ -36,6 +39,7 @@ const Background = () => {
     const refLayer4Translate = useRef()
     const refLayer5 = useRef()
     const refLayer6 = useRef()
+    const refLayer7 = useRef()
 
     const updateXPosition = (ref, multiplier, currentScrollPosition, maxX) => {
         let position = currentScrollPosition*multiplier
@@ -67,6 +71,7 @@ const Background = () => {
         updateYPosition(refLayer4Translate.current, multipliers.layer4.y, pos)
         updateXPosition(refLayer5.current, multipliers.layer5, pos, maxXLayer5)
         updateYPosition(refLayer6.current, multipliers.layer6, pos, maxYLayer6)
+        updateYPosition(refLayer7.current, multipliers.layer7, pos, maxYLayer7)
     }
 
     useEffect(() => {
@@ -93,6 +98,7 @@ const Background = () => {
             {/* </div> */}
             <Layer5 myRef={refLayer5}/>
             <Layer6 myRef={refLayer6}/>
+            <Layer7 myRef={refLayer7}/>
             <LastLayer/>
         </Container>
     )

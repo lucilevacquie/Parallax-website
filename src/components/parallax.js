@@ -71,22 +71,24 @@ const Parallax = () => {
     //     ref.style.transform = `scale3d(${1 + currentScrollPosition*multiplier}, ${1 + currentScrollPosition*multiplier}, 1)`
     // }
 
-    const updatePositionsOfSVGS = (pos) => {
-        console.log(refLayer1)
-        updateXPosition(refLayer1.current, multipliers.layer1, pos)
-        updateXPosition(refLayer2.current, multipliers.layer2, pos)
-        updateXPosition(refLayer3.current, multipliers.layer3, pos)
-        // updateScale(refLayer4Scale.current, multipliers.layer4.scale, pos)
-        updateYPosition(refLayer4Translate.current, multipliers.layer4.y, pos)
-        updateXPosition(refLayer5.current, multipliers.layer5, pos, maxXLayer5)
-        updateYPosition(refLayer6.current, multipliers.layer6, pos, maxYLayer6)
-        updateYPosition(refLayer7.current, multipliers.layer7, pos, maxYLayer7)
-        updateYPosition(refScrollDown.current, multipliers.scrollDown, pos)
-        updateYPosition(refMyName.current, multipliers.myName, pos, maxYMyName)
-        // updateYPosition(refLinks.current, multipliers.links, pos)
-    }
+
 
     useEffect(() => {
+        const updatePositionsOfSVGS = (pos) => {
+            console.log(refLayer1)
+            updateXPosition(refLayer1.current, multipliers.layer1, pos)
+            updateXPosition(refLayer2.current, multipliers.layer2, pos)
+            updateXPosition(refLayer3.current, multipliers.layer3, pos)
+            // updateScale(refLayer4Scale.current, multipliers.layer4.scale, pos)
+            updateYPosition(refLayer4Translate.current, multipliers.layer4.y, pos)
+            updateXPosition(refLayer5.current, multipliers.layer5, pos, maxXLayer5)
+            updateYPosition(refLayer6.current, multipliers.layer6, pos, maxYLayer6)
+            updateYPosition(refLayer7.current, multipliers.layer7, pos, maxYLayer7)
+            updateYPosition(refScrollDown.current, multipliers.scrollDown, pos)
+            updateYPosition(refMyName.current, multipliers.myName, pos, maxYMyName)
+            // updateYPosition(refLinks.current, multipliers.links, pos)
+        }
+
         const callbackFunc = (event) => {
             const currentScrollPosition = window.scrollY;
 

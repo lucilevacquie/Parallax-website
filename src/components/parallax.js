@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import Layer1 from "./background-layers/layer1";
 import Layer2 from "./background-layers/layer2";
@@ -12,7 +12,7 @@ import ScrollDown from "./other/scroll-down";
 import MyName from "./other/lucile-vacquie";
 
 const Container = styled.div`
-    height: 5000px;
+    position: relative;
 `;
 
 const multipliers = {
@@ -37,7 +37,7 @@ const maxYLayer7 = 100;
 const maxYMyName = 420;
 
 const Parallax = () => {
-    
+
     const refLayer1 = useRef()
     const refLayer2 = useRef()
     const refLayer3 = useRef()
@@ -51,16 +51,16 @@ const Parallax = () => {
     // const refLinks = useRef()
 
     const updateXPosition = (ref, multiplier, currentScrollPosition, maxX) => {
-        let position = currentScrollPosition*multiplier
-        if(maxX && position > maxX){
+        let position = currentScrollPosition * multiplier
+        if (maxX && position > maxX) {
             position = maxX
         }
         ref.style.transform = `translate3d( ${position}px, 0, 0)`
     }
 
     const updateYPosition = (ref, multiplier, currentScrollPosition, maxY) => {
-        let position = currentScrollPosition*multiplier
-        if(maxY && position > maxY){
+        let position = currentScrollPosition * multiplier
+        if (maxY && position > maxY) {
             position = maxY
         }
         ref.style.transform = `translate3d( 0, ${position}px, 0)`
@@ -97,23 +97,23 @@ const Parallax = () => {
 
         document.addEventListener("scroll", callbackFunc)
 
-        return () => { document.removeEventListener("scroll", callbackFunc)}
+        return () => { document.removeEventListener("scroll", callbackFunc) }
     }, [])
 
     return (
         <Container>
             <Layer1 myRef={refLayer1} />
-            <Layer2 myRef={refLayer2}/>
-            <Layer3 myRef={refLayer3}/>
+            <Layer2 myRef={refLayer2} />
+            <Layer3 myRef={refLayer3} />
             {/* <div ref={refLayer4Translate}> */}
-                <Layer4 myRef={refLayer4Translate}/>
+            <Layer4 myRef={refLayer4Translate} />
             {/* </div> */}
-            <Layer5 myRef={refLayer5}/>
-            <Layer6 myRef={refLayer6}/>
-            <Layer7 myRef={refLayer7}/>
-            <ScrollDown myRef={refScrollDown}/>
-            <MyName myRef={refMyName}/>
-            <LastLayer/>
+            <Layer5 myRef={refLayer5} />
+            <Layer6 myRef={refLayer6} />
+            <Layer7 myRef={refLayer7} />
+            <ScrollDown myRef={refScrollDown} />
+            <MyName myRef={refMyName} />
+            <LastLayer />
         </Container>
     )
 }

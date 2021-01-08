@@ -24,7 +24,7 @@ const Links = () => {
         <Container>
             <Link href="https://www.linkedin.com/in/lucile-vacqui%C3%A929/" target="_blank">LinkedIn</Link>
             <Link href="https://github.com/lucilevacquie" target="_blank">GitHub</Link>
-            <Link href="https://lucilevacquie.com/" target="_blank">Personal website</Link>
+            <Link href="https://resume.lucilevacquie.com/" target="_blank">Personal website</Link>
         </Container>
     )
 }

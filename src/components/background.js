@@ -2,13 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import Parallax from "./parallax"
 
-// const Wrapper = styled.div`
-//     height: 100vh;
-//     width: 476px;
-//     background-color: red;
-//     margin: auto;
-// `;
-
 const Scroller = styled.div`
     height: 5000px;
     width: 100%;
@@ -59,11 +52,6 @@ const Background = () => {
             </GridContainer>
         </Scroller>
     )
-    // return (
-    //     <Wrapper>
-    //         <Parallax />
-    //     </Wrapper>
-    // )
 }
 
 export default Background;

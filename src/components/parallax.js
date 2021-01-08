@@ -28,7 +28,6 @@ const multipliers = {
     layer7: -0.05,
     scrollDown: -0.12,
     myName: 0.12,
-    // links: -0.05
 }
 
 const maxXLayer5 = 130;
@@ -41,14 +40,12 @@ const Parallax = () => {
     const refLayer1 = useRef()
     const refLayer2 = useRef()
     const refLayer3 = useRef()
-    // const refLayer4Scale = useRef()
     const refLayer4Translate = useRef()
     const refLayer5 = useRef()
     const refLayer6 = useRef()
     const refLayer7 = useRef()
     const refScrollDown = useRef()
     const refMyName = useRef()
-    // const refLinks = useRef()
 
     const updateXPosition = (ref, multiplier, currentScrollPosition, maxX) => {
         let position = currentScrollPosition * multiplier
@@ -66,27 +63,18 @@ const Parallax = () => {
         ref.style.transform = `translate3d( 0, ${position}px, 0)`
     }
 
-    // const updateScale = (ref, multiplier, currentScrollPosition) => {
-    //     console.log(ref);
-    //     ref.style.transform = `scale3d(${1 + currentScrollPosition*multiplier}, ${1 + currentScrollPosition*multiplier}, 1)`
-    // }
-
-
-
     useEffect(() => {
         const updatePositionsOfSVGS = (pos) => {
             console.log(refLayer1)
             updateXPosition(refLayer1.current, multipliers.layer1, pos)
             updateXPosition(refLayer2.current, multipliers.layer2, pos)
             updateXPosition(refLayer3.current, multipliers.layer3, pos)
-            // updateScale(refLayer4Scale.current, multipliers.layer4.scale, pos)
             updateYPosition(refLayer4Translate.current, multipliers.layer4.y, pos)
             updateXPosition(refLayer5.current, multipliers.layer5, pos, maxXLayer5)
             updateYPosition(refLayer6.current, multipliers.layer6, pos, maxYLayer6)
             updateYPosition(refLayer7.current, multipliers.layer7, pos, maxYLayer7)
             updateYPosition(refScrollDown.current, multipliers.scrollDown, pos)
             updateYPosition(refMyName.current, multipliers.myName, pos, maxYMyName)
-            // updateYPosition(refLinks.current, multipliers.links, pos)
         }
 
         const callbackFunc = (event) => {

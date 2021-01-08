@@ -1,26 +1,44 @@
 import React from "react"
 import styled from "styled-components"
-import Arrow from "../../assets/arrow-down.svg"
 
 const Container = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    text-align: center;
 `;
 
-const DownArrow = styled.img`
+const Text = styled.div`
     position: fixed;
-    width: 95px;
     top: 40px;
     z-index: 2;
-`;
 
-const ScrollDown = ({myRef}) => {
-    return(
+    p {
+        color: white;
+        font-family: 'Shorelines';
+        margin: 0;
+        font-size: 1.3rem;
+    }
+`
+
+const Arrow = styled.i`
+    border: solid white;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+`
+
+const ScrollDown = ({ myRef }) => {
+    return (
         <Container>
-            <DownArrow ref={myRef} src={Arrow}/>
+            <Text ref={myRef}>
+                <p>Scroll Down</p>
+                <Arrow className="arrow down"></Arrow>
+            </Text>
         </Container>
-    
+
     )
 }
 

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Parallax from "./parallax"
 
 const Scroller = styled.div`
-    height: 5000px;
+    height: 5000px; //total x value of the page
     width: 100%;
 `
 const GridContainer = styled.div`

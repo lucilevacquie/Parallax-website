@@ -15,6 +15,7 @@ const Container = styled.div`
     position: relative;
 `;
 
+//multipliers define the speed and the direction (minus to the left) of each element
 const multipliers = {
     layer1: -0.6,
     layer2: 0.3,
@@ -30,6 +31,7 @@ const multipliers = {
     myName: 0.12,
 }
 
+//set a max position to stop the element from moving
 const maxXLayer5 = 130;
 const maxYLayer6 = 160;
 const maxYLayer7 = 100;
@@ -47,25 +49,32 @@ const Parallax = () => {
     const refScrollDown = useRef()
     const refMyName = useRef()
 
+    //function which allows elements to move on x axe (horizontal)
     const updateXPosition = (ref, multiplier, currentScrollPosition, maxX) => {
         let position = currentScrollPosition * multiplier
+        //if the element present a max x position, set the position to max x position
         if (maxX && position > maxX) {
             position = maxX
         }
+        //translate3d(x, y, z) so here we're updating the first value
         ref.style.transform = `translate3d( ${position}px, 0, 0)`
     }
 
+    //function which allows elements to move on y axe (vertical)
+    //takes 3 required arguments and 1 optional (max position)
     const updateYPosition = (ref, multiplier, currentScrollPosition, maxY) => {
         let position = currentScrollPosition * multiplier
+        //if the element present a max y position, set the position to max y position
         if (maxY && position > maxY) {
             position = maxY
         }
+        //translate3d(x, y, z) so here we're updating the second value
         ref.style.transform = `translate3d( 0, ${position}px, 0)`
     }
 
+    //using a useEffect because we want the event listener to run just once each time we scroll
     useEffect(() => {
         const updatePositionsOfSVGS = (pos) => {
-            console.log(refLayer1)
             updateXPosition(refLayer1.current, multipliers.layer1, pos)
             updateXPosition(refLayer2.current, multipliers.layer2, pos)
             updateXPosition(refLayer3.current, multipliers.layer3, pos)
@@ -78,15 +87,19 @@ const Parallax = () => {
         }
 
         const callbackFunc = (event) => {
+            //scroll position
             const currentScrollPosition = window.scrollY;
 
+            //called on every browser tick (60 times/second)
             setTimeout(() => {
                 updatePositionsOfSVGS(currentScrollPosition);
-            }, 0)
+            }, 0) //synchronise with browser tick (doesn't wait)
         }
 
+        //want to trigger the callbackFunc once every time we scroll
         document.addEventListener("scroll", callbackFunc)
 
+        //need to turn it of not to add an event listener on every run
         return () => { document.removeEventListener("scroll", callbackFunc) }
     }, [])
 
@@ -95,9 +108,7 @@ const Parallax = () => {
             <Layer1 myRef={refLayer1} />
             <Layer2 myRef={refLayer2} />
             <Layer3 myRef={refLayer3} />
-            {/* <div ref={refLayer4Translate}> */}
             <Layer4 myRef={refLayer4Translate} />
-            {/* </div> */}
             <Layer5 myRef={refLayer5} />
             <Layer6 myRef={refLayer6} />
             <Layer7 myRef={refLayer7} />
